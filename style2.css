@@ -1,0 +1,47 @@
+:root {
+    --box-shadow: 0px 0px 0px 6px;
+    --black: #000000;
+    --color1: #244855;
+    --color2: #E64833;
+    --color3: #874f41;
+    --color4: #90aead;
+    --color5: #fbe9d0;
+    --color6: #f7ca18;
+}
+.go-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color2);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.go-to-top:hover {
+    background-color: var(--color2);
+    box-shadow: 0 0 10px var(--black);
+    transform: scale(1.1);
+}
+
+.go-to-top:active {
+    background-color: var(--black); /* Change to another color when clicked */
+    box-shadow: 0 0 15px var(--color5); /* Different shadow effect when clicked */
+    transform: scale(1.2); /* Slightly larger scale when clicked */
+}
+
+.go-to-top i {
+    font-size: 24px;
+}
+
+.go-to-top.hidden {
+    display: none;
+}
