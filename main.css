@@ -1,0 +1,56 @@
+/* main.css */
+
+/* Styling for the video section */
+#video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    
+}
+
+.bg-video {
+    width: 50%; /* Adjust width as needed */
+    height: 60%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+
+.left-video {
+    order: 1; /* Ensure left video is first */
+}
+
+.right-video {
+    order: 2; /* Ensure right video is second */
+}
+
+
+.video-paragraph {
+    position: absolute;
+    top: 25%;
+    transform: translateY(-25%);
+    z-index: 2; /* Ensure it appears above the video */
+    color: white; /* Adjust color as needed */
+    padding: 20px; /* Adjust padding as needed */
+    max-width: 45%;
+}
+
+.left-paragraph {
+    left: 5%; /* Adjust position as needed */
+}
+
+.right-paragraph {
+    right: 5%; /* Adjust position as needed */
+}
+
