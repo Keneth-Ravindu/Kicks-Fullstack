@@ -1,3 +1,4 @@
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,14 +6,8 @@
     font-family: "Roboto", sans-serif;
 }
 
-.roboto-light {
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
+/* Root Colors */
 :root {
-    --box-shadow: 0px 0px 0px 6px;
     --black: #000000;
     --color1: #244855;
     --color2: #E64833;
@@ -20,23 +15,44 @@
     --color4: #90aead;
     --color5: #fbe9d0;
     --color6: #f7ca18;
+    --color7: linear-gradient(90deg, var(--color6), var(--color2), var(--color1));
 }
 
+/* Body Styles */
 body {
     background-color: #f0f2f5;
+    scroll-behavior: smooth;
 }
 
+/* Header Styles */
 .header {
     background: linear-gradient(90deg, var(--color6), var(--color2), var(--color1));
     color: #fff;
     padding: 10px 20px;
-    position:relative;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.header.scrolling-up {
+    background: rgba(0, 0, 0, 0.8); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header.scrolling-down {
+    background: rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header.hide {
+    top: -100px; /* Adjust based on your navbar height */
 }
 
 .header .flex {
@@ -44,7 +60,6 @@ body {
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    position: relative;
 }
 
 .header .logo img {
@@ -61,7 +76,7 @@ body {
 .header .navbar a {
     color: #fff;
     margin: 0 10px;
-    text-decoration: solid;
+    text-decoration: none; /* Changed from solid to none */
     transition: background 0.3s ease, color 0.3s ease;
     text-transform: uppercase;
     padding: 10px 15px;
@@ -81,11 +96,11 @@ body {
 }
 
 .header .icons i {
-    font-size: 20px; /* Reduced font size for the icons */
+    font-size: 20px; /* Adjusted font size */
     margin-left: 15px;
     cursor: pointer;
     transition: color 0.3s ease, transform 0.3s ease;
-    color: #fff; /* Ensures all icons are white */
+    color: #fff;
 }
 
 .header .icons i:hover {
@@ -94,10 +109,9 @@ body {
 }
 
 .header .icons sup {
-    color: #fff; /* Makes the text in <sup> elements white */
-    text-decoration: none; /* Removes the underline */
-    font-size: 0.8em; /* Adjust font size */
-    vertical-align: top; /* Align sup text properly */
+    color: #fff;
+    font-size: 0.8em;
+    vertical-align: top;
 }
 
 .header .dropdown,
@@ -105,8 +119,8 @@ body {
     position: absolute;
     top: calc(100% + 10px);
     right: 0;
-    backdrop-filter: blur(70px); /* Blurred background */
-    border-radius: 10px; /* Rounded corners */
+    backdrop-filter: blur(70px);
+    border-radius: 10px;
     display: none;
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -114,14 +128,7 @@ body {
     z-index: 1000;
     width: 250px;
     padding: 20px;
-    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.1); /* Soft shadow */
-}
-
-.header .icons #menu-btn:hover + .dropdown,
-.header .icons #menu-btn2:hover + .dropdown2 {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
 .header .dropdown.show,
@@ -133,26 +140,26 @@ body {
 
 .header .dropdown .user-box,
 .header .dropdown2 .user-box {
-    padding: 20px; /* Increase padding for better spacing */
-    text-align: center; /* Center-align content */
+    padding: 20px;
+    text-align: center;
 }
 
 .header .dropdown .user-box p,
 .header .dropdown2 .user-box p {
-    margin: 10px 0; /* Adjust margin for paragraphs */
-    color: #ffffff; /* Adjust text color */
-    font-size: 16px; /* Adjust font size */
-}s
+    margin: 10px 0;
+    color: #ffffff;
+    font-size: 16px;
+}
 
 .header .dropdown .user-box span,
 .header .dropdown2 .user-box span {
-    color: var(--color2); /* Adjust color for span elements */
+    color: var(--color2);
 }
 
 .header .logout-btn-container {
     display: flex;
     justify-content: center;
-    width: 100%; /* Ensure the container takes full width */
+    width: 100%;
 }
 
 .header .logout-btn {
@@ -260,6 +267,6 @@ body {
 }
 
 .header .icons .dropdown2 a:hover {
-    background-color: var(--color6);
+    background-color: var(--color2);
+    border-radius: 10px;
 }
-

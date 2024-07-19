@@ -1,0 +1,162 @@
+/* CSS for footer styling */
+:root {
+    --black: #000000;
+    --color1: #244855;
+    --color2: #E64833;
+    --color3: #874f41;
+    --color4: #90aead;
+    --color5: #fbe9d0;
+    --color6: #f7ca18;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.line4 {
+    height: 1px;
+    background-color: #333;
+}
+
+footer {
+    background-color: #282828;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+.inner-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.card h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+   
+}
+
+.local-card ul{
+    color: #fbe9d0;
+}
+
+.card:nth-of-type(3) h3 {
+    color: #ff6347; /* Example color: Tomato */
+}
+
+.card:nth-of-type(2) h3 {
+    color: #ff6347; /* Example color: Tomato */
+}
+
+.card:nth-of-type(1) h3 {
+    color: #ff6347; /* Example color: Tomato */
+}
+
+.card:nth-of-type(4) h3 {
+    color: #ff6347; /* Example color: Tomato */
+}
+
+.card p{
+    color: #fbe9d0;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+.card ul li {
+    margin: 10px 0;
+    
+}
+
+.card ul li a {
+    text-decoration: none;
+    color: #ffaa00;
+    transition: color 0.3s ease-in-out;
+    text-transform: capitalize;
+}
+
+.card ul li a:hover {
+    color: #ed0000a8;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    
+}
+
+.input-field input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 200px;
+    outline: none;
+    text-transform: capitalize;
+}
+
+.input-field i {
+    padding: 10px;
+    background-color: #ff0000;
+    border-radius: 0 5px 5px 0;
+}
+
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a{
+    color: #ffffff;
+    margin-right: 15px;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.social-links a.instagram:hover {
+    color: #E4405F; /* Instagram pink */
+}
+
+.social-links a.youtube:hover {
+    color: #FF0000; /* YouTube red */
+}
+
+.social-links a.twitter:hover {
+    color: #1DA1F2; /* Twitter blue */
+}
+
+.social-links a.behance:hover {
+    color: #1769FF; /* Behance blue */
+}
+
+.social-links a.whatsapp:hover {
+    color: #25D366; /* WhatsApp green */
+}
+
+.bottom-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.bottom-footer p {
+    margin: 0;
+    padding: 10px;
+    background-color: #1c1c1c;
+    text-transform: capitalize;
+    color: var(--color4);
+}

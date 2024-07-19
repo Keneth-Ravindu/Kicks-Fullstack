@@ -1,34 +1,35 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const menuBtn = document.getElementById('menu-btn');
-    const dropdownMenu = document.getElementById('dropdown-menu');
+console.log('Script1 loaded');
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggleDropdown = (btnId, menuId) => {
+            const menuBtn = document.getElementById(btnId);
+            const dropdownMenu = document.getElementById(menuId);
 
-    // Toggle dropdown menu visibility
-    menuBtn.addEventListener('click', function() {
-        dropdownMenu.classList.toggle('show');
+            let timeout;
+
+            menuBtn.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevents the event from bubbling up to the document
+                dropdownMenu.classList.toggle('show');
+                
+                // Clear any previous timeout
+                if (timeout) clearTimeout(timeout);
+
+                // Hide dropdown after 500ms if clicking outside
+                timeout = setTimeout(() => {
+                    document.addEventListener('click', function(event) {
+                        if (!menuBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                            dropdownMenu.classList.remove('show');
+                        }
+                    }, { once: true });
+                }, 500); // Delay to allow for clicks inside dropdown
+            });
+
+            dropdownMenu.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevents the event from bubbling up to the document
+            });
+        };
+
+        // Initialize both dropdowns
+        toggleDropdown('menu-btn', 'dropdown-menu');
+        toggleDropdown('menu-btn2', 'dropdown-menu2');
     });
-
-    // Close dropdown menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!menuBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.remove('show');
-        }
-    });
-
-    // Prevent closing dropdown when clicking inside
-    dropdownMenu.addEventListener('click', function(event) {
-        event.stopPropagation();
-    });
-});
-
-
-
-
-
-
-
-
-
-
-
-
 
