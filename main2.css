@@ -63,6 +63,7 @@ body {
     z-index: 1;
     margin-top: 3%;
     transition: transform var(--transition), background-color var(--transition);
+    text-transform: capitalize;
 }
 
 .banner:hover {

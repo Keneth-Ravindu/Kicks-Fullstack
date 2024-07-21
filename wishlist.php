@@ -50,159 +50,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!------------------------bootstrap icon link------------------------------->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <title>Kicks Wishlist</title>
-    <style>
-        /* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-.banner {
-    background: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-.detail h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-.detail p {
-    font-size: 1.2em;
-}
-
-.detail a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.detail span {
-    color: #bbb;
-}
-
-/* Wishlist Section */
-.shop {
-    padding: 20px;
-    background-color: #fff;
-}
-
-.title {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.box-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.box {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 250px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.box img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.price {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin: 10px;
-}
-
-.name {
-    padding: 10px;
-    font-size: 1.2em;
-}
-
-.icon {
-    text-align: center;
-    padding: 10px;
-}
-
-.icon a {
-    font-size: 1.5em;
-    margin: 0 10px;
-    color: #333;
-    text-decoration: none;
-}
-
-.icon a:hover {
-    color: #007bff;
-}
-
-.icon button {
-    font-size: 1.5em;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #007bff;
-}
-
-.icon button:hover {
-    color: #0056b3;
-}
-
-/* Wishlist Total */
-.wishlist_total {
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-}
-
-.wishlist_total p {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.wishlist_total .btn {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1em;
-    margin: 10px;
-    display: inline-block;
-}
-
-.wishlist_total .btn:hover {
-    background: #0056b3;
-}
-
-.wishlist_total .btn.disabled {
-    background: #ccc;
-    cursor: not-allowed;
-}
-
-    </style>
+    
 </head>
 
 <body>
@@ -211,10 +69,8 @@ body {
         <div class="detail">
             <h1>my wishlist</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-            <a href="index.php">home</a><span>/ wishlist</span>
         </div>
     </div>
-    <div class="line"></div>
     <section class="shop">
         <h1 class="title">products added in wishlist</h1>
         <?php 
@@ -279,6 +135,7 @@ body {
 
     </script>
     <?php include 'footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
