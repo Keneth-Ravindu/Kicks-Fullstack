@@ -1,0 +1,380 @@
+:root {
+    --box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.5);
+    --black: #000000;
+    --dark-gray: #1c1c1c5e;
+    --gray: #333333;
+    --light-gray: #777777;
+    --accent1: #ff4c4c;
+    --accent2: #00bcd4;
+    --accent3: #ffeb3b;
+    --white: #ffffff;
+    --transition: 0.3s ease-in-out;
+    --video-overlay-color: rgba(0, 0, 0, 0.5);
+    --photo-overlay-color: rgba(0, 0, 0, 0.6);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.video-background:hover video {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Adjust the transparency as needed */
+}
+
+.banner {
+    background: transparent;
+    color: var(--white);
+    text-align: center;
+    padding: 85px 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 3%;
+    transition: transform var(--transition), background-color var(--transition);
+}
+
+.banner:hover {
+    transform: scale(1.02);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.banner h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    animation: fadeInDown var(--transition);
+}
+
+.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    z-index: 1;
+    position: relative;
+    animation: fadeInUp var(--transition);
+}
+
+.banner a {
+    color: var(--accent1);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid var(--accent1);
+    border-radius: 5px;
+    transition: all var(--transition);
+    z-index: 1;
+    position: relative;
+}
+
+.banner a:hover {
+    background-color: var(--accent1);
+    color: var(--black);
+}
+
+.shop .title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 40px 0;
+    color: var(--white);
+    position: relative;
+    animation: fadeInUp var(--transition);
+    transition: color var(--transition), transform var(--transition);
+    margin-top: 0;
+}
+
+.shop .title:hover {
+    color: var(--accent1);
+    transform: scale(1.1);
+}
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+}
+
+.box {
+    background-color: var(--dark-gray);
+    border: 2px solid var(--gray);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    animation: bounceIn var(--transition);
+}
+
+.box:hover {
+    transform: translateY(-25px);
+    box-shadow: 0px 0px 25px 10px var(--accent1);
+}
+
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform var(--transition);
+}
+
+.box:hover img {
+    transform: scale(1.1);
+}
+
+.box .price {
+    color: var(--accent1);
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.box .name {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: var(--white);
+}
+
+.box .icon {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.box .icon a, .box .icon button {
+    background-color: var(--accent2);
+    border: none;
+    color: var(--black);
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color var(--transition), transform var(--transition);
+    font-size: 1.2rem;
+}
+
+.box .icon a:hover, .box .icon button:hover {
+    background-color: var(--accent3);
+    transform: translateY(-3px) rotate(10deg);
+}
+
+.message {
+    background-color: var(--accent1);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.message span {
+    font-size: 1rem;
+}
+
+.message i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for the photo section */
+#photo-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    perspective: 1200px; /* Create depth effect */
+}
+
+.photo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transform-style:preserve-3d;
+    transition: transform 0.5s ease-in-out;
+}
+
+.bg-photo {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.bg-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.bg-photo:hover .photo-overlay {
+    opacity: 1;
+}
+
+.bg-photo:hover img {
+    transform: scale(1.1) rotateY(10deg);
+}
+
+.photo-paragraph {
+    position: absolute;
+    top: 85%;
+    transform: translateY(-50%);
+    z-index: 3; /* Ensure it appears above the video and overlay */
+    color: rgb(255, 255, 255); /* Adjust color as needed */
+    padding: 50px; /* Adjust padding as needed */
+    max-width: 45%;
+    text-align: center; /* Center-align text and elements inside */ /* Smooth transition for color change */
+    transition: color 0.3s ease-in-out;
+    font-family:'Times New Roman', Times, serif;
+    font-style:italic;
+    font-weight: 500;
+}
+
+.left-paragraph {
+    left: 1.7%; /* Adjust position as needed */
+}
+
+.right-paragraph {
+    right: 1.7%; /* Adjust position as needed */
+}
+
+.photo-paragraph:hover {
+    color: var(--white); /* Change text color on hover */
+}
+
+.btngs {
+    --glow-color: rgb(176, 186, 255);
+    --glow-spread-color: rgba(176, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(206, 210, 255);
+    --btn-color: rgb(70, 61, 136);
+
+    border: .25em solid var(--glow-color);
+    padding: 1em 3em;
+    color: var(--white);
+    font-size: 15px;
+    font-weight:bold;
+    background-color: rgb(0, 0, 0);
+    border-radius: 1em;
+    outline: none;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 1em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;
+    margin: 10px auto; /* Center the button horizontally */
+    display: block; /* Make the button a block-level element */
+    cursor: pointer;
+}
+
+.btngs::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+.btngs:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+           0 0 4em 2em var(--glow-spread-color),
+           inset 0 0 .75em .25em var(--glow-color);
+    opacity: 1;
+}
+
+.btngs:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+           0 0 2.5em 2em var(--glow-spread-color),
+           inset 0 0 .5em .25em var(--glow-color);
+}
+
+
+
+
