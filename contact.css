@@ -1,0 +1,221 @@
+/* General Styles */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+h1, h4 {
+    color: #ffffff;
+}
+
+/* Banner Section */
+.banner {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: 3%;
+    transition: transform var(--transition), background-color var(--transition);
+    text-transform: capitalize;
+}
+
+.banner:hover {
+    transform: scale(1.02);
+}
+
+.banner h1 {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size:60px;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    animation: fadeInDown var(--transition);
+}
+
+
+
+/* Services Section */
+.services {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.services .row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.services .box {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.services .box:hover {
+    transform: scale(1.05);
+    background-color: #3d3d3d;
+}
+
+.services .box img {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+.services .box h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.services .box p {
+    font-size: 16px;
+}
+
+/* Form Section */
+.form-container {
+    padding: 50px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    margin: 50px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 50%;
+    margin-left: 25%;
+}
+
+.form-container .title {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #ffffff;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size:40px;
+    text-transform: capitalize;
+}
+
+.form-container .input-field {
+    margin-bottom: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.form-container .input-field label {
+    display: auto;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size:12px;
+    text-transform: capitalize;;
+    margin-bottom: 5px;
+    color: #bbbbbb;
+    text-transform: capitalize;
+}
+
+.form-container .input-field input, 
+.form-container .input-field textarea {
+    width: 85%;
+    padding: 10px;
+    background-color: #252525;
+    border: 2px solid #333333;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+    margin-left: auto;
+
+   
+}
+
+.form-container .input-field input:focus, 
+.form-container .input-field textarea:focus {
+    background-color: #333333;
+    border-color: #ff6600;
+}
+
+.form-container .input-field input::placeholder, 
+.form-container .input-field textarea::placeholder {
+    color: #777777;
+}
+
+
+
+.form-container button {
+    display: block;
+    width: 50%;
+    padding: 15px;
+    background-color: #ff6600;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    outline: none;
+    margin-left: 25%;
+}
+
+.form-container button:hover {
+    background-color: #e65c00;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+
+/* Address Section */
+.address {
+    padding: 50px 0;
+    text-align: center;
+    margin-bottom: 2.5%;
+    text-transform: capitalize;
+}
+
+.address .title {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.address .row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.address .box {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 20px;
+    width: 25%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.address .box:hover {
+    transform: scale(1.05);
+    background-color: #3d3d3d;
+}
+
+.address .box i {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.address .box h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.address .box p {
+    font-size: 16px;
+}
+
+

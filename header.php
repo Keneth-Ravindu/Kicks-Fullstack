@@ -13,7 +13,7 @@
             <a href="index.php" class="logo"><img src="Assets/logo.png" alt="Logo"></a>
             <nav class="navbar">
                 <a href="index.php">home</a>
-                <a href="about.php">about us</a>
+                <a href="aboutus.php">about us</a>
                 <a href="shop.php">shop</a>
                 <a href="order.php">order</a>
                 <a href="contact.php">contact</a>
