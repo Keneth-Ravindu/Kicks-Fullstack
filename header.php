@@ -47,6 +47,7 @@
                 </div>
                 <i class="bi bi-list" id="menu-btn2"></i>
                 <div class="dropdown2" id="dropdown-menu2">
+                    <a href="user.php">User</a>
                     <a href="settings.php">Settings</a>
                     <a href="find_store.php">Find a Store</a>
                     <a href="help.php">Help</a>

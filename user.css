@@ -1,0 +1,54 @@
+
+.profile-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(145deg, #2e2e2e, #1a1a1a);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 -4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transform: perspective(1000px) rotateX(5deg);
+    transition: transform 0.3s ease;
+    margin-top: 5%;
+    color: #fff;
+}
+.profile-container:hover {
+    transform: perspective(1000px) rotateX(0deg);
+}
+.profile-container h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.profile-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+.profile-container img:hover {
+    transform: scale(1.1);
+}
+.profile-container p {
+    font-size: 1.2em;
+    margin: 10px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: capitalize;
+}
+.profile-container .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #333, #555);
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+

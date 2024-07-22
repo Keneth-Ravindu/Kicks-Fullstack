@@ -116,10 +116,13 @@
         </div>
         <div class="wishlist_total">
             <p>total amount payable : <span>$<?php echo $grand_total; ?>/-</span></p>
+            <br>
             <a href="shop.php" class="btn">continue shopping</a>
             <a href="wishlist.php?delete_all" class="btn delete_all <?php echo ($grand_total) ? '' : 'disabled' ?>" onclick="return confirm('do you want to delete all items in your wishlist')">delete all</a>
         </div>
     </section>
+
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
     // Example: Handle confirmation before deleting all items from wishlist

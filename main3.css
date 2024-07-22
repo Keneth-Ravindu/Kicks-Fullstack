@@ -23,7 +23,7 @@ body {
 }
 
 .banner {
-    background:var(--black);
+    background: var(--black);
     color: var(--white);
     text-align: center;
     padding: 85px 20px;
@@ -36,7 +36,6 @@ body {
 
 .banner:hover {
     transform: scale(1.02);
-    
 }
 
 .banner h1 {
@@ -55,8 +54,8 @@ body {
     animation: fadeInUp var(--transition);
 }
 
-.shop{
-    background-color: #000000;
+.shop {
+    background-color: var(--black);
 }
 
 .shop .title {
@@ -79,7 +78,7 @@ body {
 .box-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     gap: 20px;
     padding: 20px;
 }
@@ -91,7 +90,7 @@ body {
     box-shadow: var(--box-shadow);
     overflow: hidden;
     transition: transform var(--transition), box-shadow var(--transition);
-    width: 300px;
+    width: 20%;
     text-align: center;
     padding: 20px;
     position: relative;
@@ -135,6 +134,44 @@ body {
     color: var(--white);
 }
 
+.box .qty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.box .qty input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    transition: border-color var(--transition);
+}
+
+.box .qty input[type="number"]:focus {
+    border-color: var(--accent2);
+}
+
+.box .qty input[type="submit"] {
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--accent2);
+    color: var(--black);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.box .qty input[type="submit"]:hover {
+    background-color: var(--accent3);
+    transform: scale(1.05);
+}
+
 .box .icon {
     display: flex;
     justify-content: center;
@@ -157,6 +194,13 @@ body {
     transform: translateY(-3px) rotate(10deg);
 }
 
+.total-amt {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+
 .message {
     background-color: var(--accent1);
     color: var(--white);
@@ -177,76 +221,123 @@ body {
     cursor: pointer;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.dlt {
+    text-align: center;
+    margin: 20px 0;
 }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.dlt .btn2 {
+    background-color: var(--accent1);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.dlt .btn2:hover {
+    background-color: var(--accent3);
+    transform: scale(1.05);
 }
 
 /* Wishlist total */
 .wishlist_total {
-    background-color: #1f1f1f;
-    border: 1px solid #333;
-    border-radius: 5px;
-    padding: 20px;
-    margin-top: 20px;
+    background-color: var(--dark-gray);
+    border: 2px solid var(--gray);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    width: 1000px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    position: relative;
+    animation: bounceIn var(--transition);
+    display: inline-block;
+    text-transform: capitalize;
+    justify-content: center;
+    right: -23%;
+    
+    
+
+}
+
+.wishlist_total:hover {
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+    background: linear-gradient(145deg, #1f1f1f, #2d2d2d);
 }
 
 .wishlist_total p {
     font-size: 1.2em;
     color: #e0e0e0;
+    margin: 0;
+    transition: color 0.3s ease;
 }
 
 .wishlist_total span {
-    color: #ff5722;
+    color: var(--accent1);
     font-weight: bold;
+    font-size: 1.4em;
 }
 
 .wishlist_total .btn {
-    background-color: #ff5722;
-    color: #ffffff;
+    background: linear-gradient(90deg, #ff4081, #f50057);
+    color: var(--white);
     text-transform: uppercase;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1em;
+    padding: 20px 25px;
+    border-radius: 25px;
+    font-size: 1.1em;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin: 20px 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.wishlist_total .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.wishlist_total .btn:hover::after {
+    opacity: 0;
 }
 
 .wishlist_total .btn:hover {
-    background-color: #e64a19;
+    background: linear-gradient(90deg, #f50057, #ff4081);
     transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .wishlist_total .btn.delete_all.disabled {
-    background-color: #666;
+    background: #666;
     cursor: not-allowed;
+    box-shadow: none;
 }
 
 .wishlist_total .btn.delete_all:not(.disabled):hover {
-    background-color: #e64a19;
+    background: linear-gradient(90deg, #f50057, #ff4081);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
+
+
+
 
 
 
