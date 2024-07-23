@@ -16,24 +16,23 @@
         $method = mysqli_real_escape_string($conn, $_POST['method']);
         $address = mysqli_real_escape_string($conn, 'flat no. '.$_POST['flate'].','.$_POST['street'].','.$_POST['city'].','.$_POST['state'].','.$_POST['country'].','.$_POST['pin']);
         $placed_on = date('d-M-Y');
-        $cart_total=0;
-        $cart_product[]='';
-        $cart_query=mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id='$user_id'") or die('query failed');
+        $cart_total = 0;
+        $cart_product = [];
+        $cart_query = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id='$user_id'") or die('query failed');
 
-        if (mysqli_num_rows($cart_query)>0) {
-            while($cart_item=mysqli_fetch_assoc($cart_query)){
-                $cart_product[]=$cart_item['name'].' ('.$cart_item['quantity'].')';
+        if (mysqli_num_rows($cart_query) > 0) {
+            while ($cart_item = mysqli_fetch_assoc($cart_query)) {
+                $cart_product[] = $cart_item['name'] . ' (' . $cart_item['quantity'] . ')';
                 $sub_total = ($cart_item['price'] * $cart_item['quantity']);
-                $cart_total+=$sub_total;
+                $cart_total += $sub_total;
             }
         }
         $total_products = implode(', ', $cart_product);
-        mysqli_query($conn, "INSERT INTO `orders`(`user_id`,`name`,`number`,`email`,`method`,`address`,`total_products`,`total_price`,`placed_on`) VALUES('$user_id','$name','$number','$email','$method','$address','$total_product','$cart_total','$placed_on')");
-        mysqli_query($conn,"DELETE FROM `cart` WHERE user_id='$user_id'");
-        $message[]='order placed successfully';
+        mysqli_query($conn, "INSERT INTO `orders`(`user_id`,`name`,`number`,`email`,`method`,`address`,`total_products`,`total_price`,`placed_on`) VALUES('$user_id','$name','$number','$email','$method','$address','$total_products','$cart_total','$placed_on')");
+        mysqli_query($conn, "DELETE FROM `cart` WHERE user_id='$user_id'");
+        $message[] = 'Order placed successfully';
         header('location:checkout.php');
     }
-    
 ?>
 
 <!DOCTYPE html>
@@ -55,20 +54,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <title>Kicks About Us</title>
+    <title>Kicks Checkout</title>
+
 </head>
 
-<body class="dark-theme">
+<body>
     <?php include 'header.php'; ?>
     <div class="banner">
         <div class="detail">
-            <h1>order</h1>
+            <h1>Order</h1>
             <p>Make your payment easily</p>
         </div>
     </div>
     <div class="line"></div>
     <div class="checkout-form">
-        <h1 class="title">payment process</h1>
+        <h1 class="title">Payment Process</h1>
         <?php 
             if (isset($message)) {
                 foreach ($message as $message) {
@@ -84,13 +84,13 @@
         <div class="display-order">
             <div class="box-container">
             <?php
-                $select_cart=mysqli_query($conn,"SELECT * FROM `cart` WHERE user_id='$user_id'") or die('query failed');
-                $total=0;
-                $grand_total=0;
-                if (mysqli_num_rows($select_cart)>0) {
-                    while($fetch_cart=mysqli_fetch_assoc($select_cart)){
-                        $total_price=($fetch_cart['price'] * $fetch_cart['quantity']);
-                        $grand_total=$total+=$total_price;
+                $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id='$user_id'") or die('query failed');
+                $total = 0;
+                $grand_total = 0;
+                if (mysqli_num_rows($select_cart) > 0) {
+                    while ($fetch_cart = mysqli_fetch_assoc($select_cart)) {
+                        $total_price = ($fetch_cart['price'] * $fetch_cart['quantity']);
+                        $grand_total = $total += $total_price;
                     
                 ?>
                 
@@ -103,67 +103,59 @@
                         }
                     }
                 ?>
-            </div>
-            <span class="grand-total">Total Amount Payable : $<?= $grand_total; ?></span>
-        </div>
+            </div><br><br>
+            <span class="grand-total"><center>Total Amount Payable : $<?= $grand_total; ?></center></span>
+        </div><br><br>
         <form method="post">
             <div class="input-field">
-                <label>your name</label>
-                <input type="text" name="name" placeholder="enter your name">
+                <label>Your Name</label>
+                <input type="text" name="name" placeholder="Enter your name" required>
             </div>
             <div class="input-field">
-                <label>your number</label>
-                <input type="number" name="number" placeholder="enter your number">
+                <label>Your Number</label>
+                <input type="number" name="number" placeholder="Enter your number" required>
             </div>
             <div class="input-field">
-                <label>your email</label>
-                <input type="text" name="email" placeholder="enter your email">
+                <label>Your Email</label>
+                <input type="email" name="email" placeholder="Enter your email" required>
             </div>
-
             <div class="input-field">
-                <label>select payment method</label>
-                <select name="method">
-                    <option selected disabled>select payment method</option>
-                    <option value="cash on delivery">cash on delivery</option>
-                    <option value="cradit card">cradit card</option>
-                    <option value="paytm">paytm</option>
-                    <option value="paypal">paypal</option>   
+                <label>Payment Method</label>
+                <select name="method" required>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank_transfer">Bank Transfer</option>
                 </select>
             </div>
             <div class="input-field">
-                <label>address line 1</label>
-                <input type="text" name="flate" placeholder="e.g flate no.">
+                <label>Flat No.</label>
+                <input type="text" name="flate" placeholder="Flat No." required>
             </div>
             <div class="input-field">
-                <label>address line 2</label>
-                <input type="text" name="street" placeholder="e.g street name">
+                <label>Street</label>
+                <input type="text" name="street" placeholder="Street" required>
             </div>
             <div class="input-field">
-                <label>city</label>
-                <input type="text" name="city" placeholder="e.g  delhi">
+                <label>City</label>
+                <input type="text" name="city" placeholder="City" required>
             </div>
             <div class="input-field">
-                <label>state</label>
-                <input type="text" name="state" placeholder="e.g new delhi">
+                <label>State</label>
+                <input type="text" name="state" placeholder="State" required>
             </div>
             <div class="input-field">
-                <label>country</label>
-                <input type="text" name="country" placeholder="e.g India">
+                <label>Country</label>
+                <input type="text" name="country" placeholder="Country" required>
             </div>
             <div class="input-field">
-                <label>pin code</label>
-                <input type="text" name="pin" placeholder="e.g 110012">
+                <label>PIN Code</label>
+                <input type="text" name="pin" placeholder="PIN Code" required>
             </div>
-            <input type="submit" name="order_btn" class="btn" value="order now">
+            <button type="submit" name="order_btn" class="btn">Place Order</button>
         </form>
     </div>
-    <script>
-        document.querySelector('#theme-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-});
 
-    </script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <?php include 'footer.php'; ?>
