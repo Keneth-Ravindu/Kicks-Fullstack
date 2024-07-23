@@ -14,13 +14,24 @@ html {
     --video-overlay-color: rgba(0, 0, 0, 0.5);
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 /* Styling for the video section */
 #video-section {
     position: relative;
     width: 100%;
     height: 85vh; /* Adjust height as needed */
     overflow: hidden;
-    
 }
 
 .video-container {
@@ -30,6 +41,7 @@ html {
     width: 100%;
     height: 100vh;
     display: flex;
+    margin-top: 3.8%;
 }
 
 .bg-video {
@@ -60,7 +72,7 @@ html {
 .bg-video:hover .video-overlay,
 .video-paragraph:hover ~ .bg-video .video-overlay,
 button:hover ~ .bg-video .video-overlay {
-    background-color: var(--video-overlay-color);
+    animation: fadeInOverlay 0.3s forwards;
 }
 
 .video-paragraph {
@@ -71,10 +83,10 @@ button:hover ~ .bg-video .video-overlay {
     color: rgb(255, 0, 0); /* Adjust color as needed */
     padding: 50px; /* Adjust padding as needed */
     max-width: 45%;
-    text-align: center; /* Center-align text and elements inside */ /* Smooth transition for color change */
-    transition: color 0.3s ease-in-out;
-    font-family:'Times New Roman', Times, serif;
-    font-style:italic;
+    text-align: center; /* Center-align text and elements inside */
+    transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
     font-weight: 500;
 }
 
@@ -88,61 +100,55 @@ button:hover ~ .bg-video .video-overlay {
 
 .video-paragraph:hover {
     color: var(--color5); /* Change text color on hover */
-    
 }
 
 .btngs {
-    --glow-color: rgb(255, 176, 176);
-    --glow-spread-color: rgba(255, 123, 123, 0.781);
-    --enhanced-glow-color: rgb(255, 206, 206);
-    --btn-color: rgb(136, 61, 61);
-
-    border: .25em solid var(--glow-color);
-    padding: 1em 3em;
-    color: var(--glow-color);
-    font-size: 15px;
-    font-weight:bold;
-    background-color: transparent;
-    border-radius: 1em;
-    outline: none;
-    box-shadow: 0 0 1em .25em var(--glow-color),
-           0 0 4em 1em var(--glow-spread-color),
-           inset 0 0 .75em .25em var(--glow-color);
+    display: inline-block;
+    padding: 12px 24px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #1e1e1e, #3a3a3a);
+    border: none;
+    cursor: pointer;
     position: relative;
-    transition: all 0.3s;
-    margin: 10px auto; /* Center the button horizontally */
-    display: block; /* Make the button a block-level element */
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
 }
 
-.btngs::after {
-    pointer-events: none;
-    content: "";
+.btngs:before {
+    content: '';
     position: absolute;
-    top: 120%;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: var(--glow-spread-color);
-    filter: blur(2em);
-    opacity: .7;
-    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.4s ease-in-out;
+    border-radius: 50%;
 }
 
 .btngs:hover {
-    color: var(--btn-color);
-    background-color: var(--glow-color);
-    box-shadow: 0 0 1em .25em var(--glow-color),
-           0 0 4em 2em var(--glow-spread-color),
-           inset 0 0 .75em .25em var(--glow-color);
-    opacity: 1;
+    animation: buttonHoverIn 0.4s forwards;
+    color: #000;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btngs:hover:before {
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .btngs:active {
-    box-shadow: 0 0 0.6em .25em var(--glow-color),
-           0 0 2.5em 2em var(--glow-spread-color),
-           inset 0 0 .5em .25em var(--glow-color);
+    animation: buttonHoverOut 0.4s forwards;
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-
 
 .banner1 {
     height: 300px;
@@ -170,7 +176,7 @@ button:hover ~ .bg-video .video-overlay {
     font-family: 'Apple Chancery', monospace;
 }
 
-.edu-au-vic-wa-nt-hand-lato{
+.edu-au-vic-wa-nt-hand-lato {
     font-family: "Edu AU VIC WA NT Hand", cursive;
     font-optical-sizing: auto;
     font-weight: 100;
@@ -209,9 +215,8 @@ button:hover ~ .bg-video .video-overlay {
     transform-style: preserve-3d;
 }
 
-/* Adjust the size and appearance of the product item */
 .product-item:hover {
-    transform: rotateY(10deg) rotateX(5deg);
+    animation: productHover 0.6s forwards;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -231,7 +236,7 @@ button:hover ~ .bg-video .video-overlay {
 }
 
 .product-image:hover img {
-    transform: scale(1.1) rotate(1deg);
+    animation: imageZoom 0.6s forwards;
     filter: brightness(100%);
 }
 
@@ -287,11 +292,15 @@ button:hover ~ .bg-video .video-overlay {
 
 .btn:hover {
     background-color: #0056b3;
-    transform: scale(1.1) translateZ(0);
+    animation: buttonHoverIn 0.3s forwards;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Adjust the height of the customer reviews section */
+.btn:active {
+    animation: buttonHoverOut 0.3s forwards;
+}
+
+/* Customer Reviews Section */
 .customer-reviews {
     padding: 40px 20px;
     background-color: #fff;
@@ -327,76 +336,79 @@ button:hover ~ .bg-video .video-overlay {
 }
 
 .review:hover {
-    transform: translateY(-10px) rotateX(5deg);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    animation: reviewHover 0.4s forwards;
 }
 
-/* Adjust the height of the promotions section */
+/* Promotions Section */
 .promotions {
     padding: 40px 20px;
-    background-color: #ffeb3b;
+    background-color: #000000;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2.5%;
 }
 
 .promotions h2 {
     font-size: 2.2rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #ffffff;
 }
 
 .promotions p {
     font-size: 1.3rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #ffffff;
 }
 
 .promotions strong {
     color: #007bff;
 }
 
+
 .btn-2 {
-    text-decoration: none;
-    position: relative;
-    border: none;
-    font-size: 16px; /* Increased font size */
-    font-family: inherit;
-    cursor: pointer;
+    display: inline-block;
+    padding: 12px 24px;
     color: #fff;
-    width: 12em; /* Increased width */
-    height: 4em; /* Increased height */
-    line-height: 3em; /* Adjusted line-height to center text */
-    text-align: center;
-    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
-    background-size: 300%;
-    border-radius: 30px;
-    z-index: 1;
-  }
-  
-  .btn-2:hover {
-    animation: ani 8s linear infinite;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #1e1e1e, #3a3a3a);
     border: none;
-  }
-  
-  .btn-2:before {
-    content: "";
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+.btn-2:before {
+    content: '';
     position: absolute;
-    top: -7px; /* Adjusted for larger size */
-    left: -7px; /* Adjusted for larger size */
-    right: -7px; /* Adjusted for larger size */
-    bottom: -7px; /* Adjusted for larger size */
-    z-index: -1;
-    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
-    background-size: 400%;
-    border-radius: 35px;
-    transition: 1s;
-  }
-  
-  .btn-2:hover::before {
-    filter: blur(25px); /* Adjusted blur for larger size */
-  }
-  
-  .btn-2:active {
-    background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
-  }
-  
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.4s ease-in-out;
+    border-radius: 50%;
+}
+
+.btn-2:hover {
+    animation: buttonHoverIn 0.4s forwards;
+    color: #000;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-2:hover:before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-2:active {
+    animation: buttonHoverOut 0.4s forwards;
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

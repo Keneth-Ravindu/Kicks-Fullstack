@@ -115,10 +115,9 @@ h1, h4 {
     font-weight: 400;
     font-style: normal;
     font-size:12px;
-    text-transform: capitalize;;
     margin-bottom: 5px;
     color: #bbbbbb;
-    text-transform: capitalize;
+    
 }
 
 .form-container .input-field input, 
@@ -133,6 +132,7 @@ h1, h4 {
     transition: all 0.3s ease;
     outline: none;
     margin-left: auto;
+    
 
    
 }
