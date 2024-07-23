@@ -23,7 +23,7 @@
 		header('location:admin_order.php');
 	}
 
-	//updateing payment status
+	//updating payment status
 
 	if (isset($_POST['update_order'])) {
 		$order_id = $_POST['order_id'];
